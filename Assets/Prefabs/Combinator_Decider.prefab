@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 556080207465603801}
   - component: {fileID: -1853025197726608518}
   m_Layer: 0
-  m_Name: Combinator_0
+  m_Name: Combinator_Decider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 3883000456894531987, guid: 27fab1463b239b742b18bf6cab85ab43, type: 3}
+  m_Sprite: {fileID: -960218453326704313, guid: 2e87ccb3fda491d45a6e9fc97419f4a0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -105,7 +105,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.0428572, y: 1.4285715}
+    oldSize: {x: 1.0428572, y: 1.4857143}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -164,10 +164,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 3883000456894531987, guid: 27fab1463b239b742b18bf6cab85ab43, type: 3}
-  - {fileID: -8998839132114991710, guid: 27fab1463b239b742b18bf6cab85ab43, type: 3}
-  - {fileID: -8654967424218862130, guid: 27fab1463b239b742b18bf6cab85ab43, type: 3}
-  - {fileID: -4257240241068086633, guid: 27fab1463b239b742b18bf6cab85ab43, type: 3}
+  - {fileID: -960218453326704313, guid: 2e87ccb3fda491d45a6e9fc97419f4a0, type: 3}
+  - {fileID: 137836051203833446, guid: 2e87ccb3fda491d45a6e9fc97419f4a0, type: 3}
+  - {fileID: 1405087071189467170, guid: 2e87ccb3fda491d45a6e9fc97419f4a0, type: 3}
+  - {fileID: -3283943907351507917, guid: 2e87ccb3fda491d45a6e9fc97419f4a0, type: 3}
 --- !u!114 &556080207465603801
 MonoBehaviour:
   m_ObjectHideFlags: 0

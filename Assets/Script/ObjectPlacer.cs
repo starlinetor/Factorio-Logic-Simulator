@@ -63,19 +63,19 @@ public class ObjectPlacer : MonoBehaviour
             }
         }
         
-
-        if (Input.GetMouseButtonDown(1))
+        //this needs to be changed, because when you press q you should use the object you press and if there is nothing structure should be set to null.
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             //if you press right click remove the structure
             structure = null;
         }
 
-        //if you are not hovering overr UI you can place the selected strucutre
-        if (Input.GetMouseButtonDown(0) && structure && !hoveringUi())
+        //if you press right click, a structure is selected, you are not hovering over another structure or UI you can place the structure
+        if (Input.GetMouseButtonDown(0) && structure && !hoveringUi() && !instantiatedStructure.GetComponent<CheckCollision>().colliding)
         {
             structurePlaced = true;
             structureInstantiated = false;
-            instantiatedStructure = null;
+            instantiatedStructure = null;  
         }
     }
 
