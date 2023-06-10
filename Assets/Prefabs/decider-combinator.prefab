@@ -17,8 +17,8 @@ GameObject:
   - component: {fileID: 556080207465603801}
   - component: {fileID: -1853025197726608518}
   m_Layer: 0
-  m_Name: Combinator_Decider
-  m_TagString: Untagged
+  m_Name: decider-combinator
+  m_TagString: decider-combinator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,10 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 441bcbcc70e33194d966ede12089dbd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outsideX: 0.5
-  outsideY: 0
-  insideX: -0.5
-  insideY: 0
+  x: 1
+  y: 2
 --- !u!114 &802138756325103206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,6 +166,7 @@ MonoBehaviour:
   - {fileID: 137836051203833446, guid: 2e87ccb3fda491d45a6e9fc97419f4a0, type: 3}
   - {fileID: 1405087071189467170, guid: 2e87ccb3fda491d45a6e9fc97419f4a0, type: 3}
   - {fileID: -3283943907351507917, guid: 2e87ccb3fda491d45a6e9fc97419f4a0, type: 3}
+  rotation: 0
 --- !u!114 &556080207465603801
 MonoBehaviour:
   m_ObjectHideFlags: 0

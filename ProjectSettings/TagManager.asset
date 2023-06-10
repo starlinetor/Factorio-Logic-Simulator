@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - UI
+  - decider-combinator
+  - arithmetic-combinator
   layers:
   - Default
   - TransparentFX

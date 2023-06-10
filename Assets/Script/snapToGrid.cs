@@ -10,14 +10,21 @@ public class snapToGrid : MonoBehaviour
     ObjectPlacer objectPlacer;
 
     [Header("Ofssets")]
-    public float outsideX;
-    public float outsideY;
-    public float insideX;
-    public float insideY;
+    public int x;
+    public int y;
+
+    float outsideX;
+    float outsideY;
+    float insideX;
+    float insideY;
 
     // Start is called before the first frame update
     void Start()
     {
+        insideX = (x % 2) / 2f;
+        insideY = (y % 2) / 2f;
+        outsideX = -insideX;
+        outsideY = -insideY;
         objectPlacer = GameObject.Find("Controller").GetComponent<ObjectPlacer>();
     }
 
@@ -28,7 +35,7 @@ public class snapToGrid : MonoBehaviour
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            if(objectPlacer.rotation % 2 == 0)
+            if(GetComponent<RotateSprite>().rotation % 2 == 0)
             {
                 mousePosition.x = Mathf.Round(mousePosition.x + insideX) + outsideX;
                 mousePosition.y = Mathf.Round(mousePosition.y + insideY) + outsideY;
@@ -41,6 +48,24 @@ public class snapToGrid : MonoBehaviour
             }
 
             transform.position = mousePosition;
+        }
+        else
+        {
+            Vector2 pos = new Vector2(transform.position.x,transform.position.y);
+
+            if (GetComponent<RotateSprite>().rotation % 2 == 0)
+            {
+                pos.x = Mathf.Round(pos.x + insideX) + outsideX;
+                pos.y = Mathf.Round(pos.y + insideY) + outsideY;
+            }
+            else
+            {
+                pos.x = Mathf.Round(pos.x + insideY) + outsideY;
+                pos.y = Mathf.Round(pos.y + insideX) + outsideX;
+
+            }
+
+            transform.position = pos;
         }
     }
 }

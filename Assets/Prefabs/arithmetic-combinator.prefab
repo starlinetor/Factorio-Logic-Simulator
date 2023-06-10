@@ -17,8 +17,8 @@ GameObject:
   - component: {fileID: 556080207465603801}
   - component: {fileID: -1853025197726608518}
   m_Layer: 0
-  m_Name: Combinator_0
-  m_TagString: Untagged
+  m_Name: arithmetic-combinator
+  m_TagString: arithmetic-combinator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,10 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 441bcbcc70e33194d966ede12089dbd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outsideX: 0.5
-  outsideY: 0
-  insideX: -0.5
-  insideY: 0
+  x: 1
+  y: 2
 --- !u!114 &802138756325103206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,6 +166,7 @@ MonoBehaviour:
   - {fileID: -8998839132114991710, guid: 27fab1463b239b742b18bf6cab85ab43, type: 3}
   - {fileID: -8654967424218862130, guid: 27fab1463b239b742b18bf6cab85ab43, type: 3}
   - {fileID: -4257240241068086633, guid: 27fab1463b239b742b18bf6cab85ab43, type: 3}
+  rotation: 0
 --- !u!114 &556080207465603801
 MonoBehaviour:
   m_ObjectHideFlags: 0

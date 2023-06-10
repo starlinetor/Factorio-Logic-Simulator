@@ -12,6 +12,9 @@ public class ObjectPlacer : MonoBehaviour
     public int rotation;
     public GameObject structure;
     public GameObject instantiatedStructure;
+    public GameObject structures;
+    SaveFileGenerator saveFileGen;
+    
     bool structureInstantiated;
     bool structurePlaced;
 
@@ -20,6 +23,8 @@ public class ObjectPlacer : MonoBehaviour
     void Start()
     {
         rotation = 0;
+        structures = GameObject.Find("Structures");
+        saveFileGen = structures.GetComponent<SaveFileGenerator>();
     }
 
     // Update is called once per frame
@@ -71,11 +76,13 @@ public class ObjectPlacer : MonoBehaviour
         }
 
         //if you press right click, a structure is selected, you are not hovering over another structure or UI you can place the structure
-        if (Input.GetMouseButtonDown(0) && structure && !hoveringUi() && !instantiatedStructure.GetComponent<CheckCollision>().colliding)
+        if (Input.GetMouseButton(0) && structure && !hoveringUi() && !saveFileGen.checkOverlaps(instantiatedStructure) && !saveFileGen.saving)
         {
             structurePlaced = true;
             structureInstantiated = false;
-            instantiatedStructure = null;  
+            instantiatedStructure.transform.parent = structures.transform;
+            instantiatedStructure = null;
+            saveFileGen.saveFile();
         }
     }
 

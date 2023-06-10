@@ -6,6 +6,7 @@ public class RotateSprite : MonoBehaviour
 {
     //changes the structure sprite based on the rotation
     public Sprite[] sprites;
+    public int rotation;
     SpriteRenderer spriteRenderer;
     ObjectPlacer objectPlacer;
 
@@ -22,6 +23,7 @@ public class RotateSprite : MonoBehaviour
     {
         if(objectPlacer.instantiatedStructure == gameObject)
         {
+            rotation = objectPlacer.rotation;
             spriteRenderer.sprite = sprites[objectPlacer.rotation];
             if (objectPlacer.rotation % 2 == 0)
             {

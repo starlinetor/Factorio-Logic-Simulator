@@ -15,7 +15,7 @@ public class CheckCollision : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    void OnTriggerStay2D(Collider2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
         colliding = true;
         spriteRenderer.color = Color.red;

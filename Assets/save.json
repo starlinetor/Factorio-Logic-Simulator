@@ -1,0 +1,400 @@
+{
+    "entities": [
+        {
+            "entity_number": 0,
+            "name": "decider-combinator",
+            "position": {
+                "x": -3.5,
+                "y": 0.0
+            },
+            "direction": 0
+        },
+        {
+            "entity_number": 1,
+            "name": "decider-combinator",
+            "position": {
+                "x": -2.5,
+                "y": 0.0
+            },
+            "direction": 0
+        },
+        {
+            "entity_number": 2,
+            "name": "decider-combinator",
+            "position": {
+                "x": -1.5,
+                "y": -1.0
+            },
+            "direction": 0
+        },
+        {
+            "entity_number": 3,
+            "name": "decider-combinator",
+            "position": {
+                "x": -0.5,
+                "y": -1.0
+            },
+            "direction": 0
+        },
+        {
+            "entity_number": 4,
+            "name": "decider-combinator",
+            "position": {
+                "x": 1.5,
+                "y": -1.0
+            },
+            "direction": 0
+        },
+        {
+            "entity_number": 5,
+            "name": "decider-combinator",
+            "position": {
+                "x": 2.5,
+                "y": 0.0
+            },
+            "direction": 0
+        },
+        {
+            "entity_number": 6,
+            "name": "decider-combinator",
+            "position": {
+                "x": 3.5,
+                "y": 0.0
+            },
+            "direction": 0
+        },
+        {
+            "entity_number": 7,
+            "name": "decider-combinator",
+            "position": {
+                "x": -0.5,
+                "y": 2.0
+            },
+            "direction": 0
+        },
+        {
+            "entity_number": 8,
+            "name": "decider-combinator",
+            "position": {
+                "x": -1.5,
+                "y": 2.0
+            },
+            "direction": 0
+        },
+        {
+            "entity_number": 9,
+            "name": "decider-combinator",
+            "position": {
+                "x": -2.5,
+                "y": 2.0
+            },
+            "direction": 0
+        },
+        {
+            "entity_number": 10,
+            "name": "decider-combinator",
+            "position": {
+                "x": -3.5,
+                "y": 2.0
+            },
+            "direction": 0
+        },
+        {
+            "entity_number": 11,
+            "name": "decider-combinator",
+            "position": {
+                "x": -4.5,
+                "y": 2.0
+            },
+            "direction": 0
+        },
+        {
+            "entity_number": 12,
+            "name": "decider-combinator",
+            "position": {
+                "x": -5.5,
+                "y": 2.0
+            },
+            "direction": 0
+        },
+        {
+            "entity_number": 13,
+            "name": "decider-combinator",
+            "position": {
+                "x": -6.5,
+                "y": 2.0
+            },
+            "direction": 0
+        },
+        {
+            "entity_number": 14,
+            "name": "decider-combinator",
+            "position": {
+                "x": -7.5,
+                "y": 1.0
+            },
+            "direction": 0
+        },
+        {
+            "entity_number": 15,
+            "name": "decider-combinator",
+            "position": {
+                "x": -5.5,
+                "y": -1.0
+            },
+            "direction": 0
+        },
+        {
+            "entity_number": 16,
+            "name": "arithmetic-combinator",
+            "position": {
+                "x": -6.5,
+                "y": -1.0
+            },
+            "direction": 0
+        },
+        {
+            "entity_number": 17,
+            "name": "arithmetic-combinator",
+            "position": {
+                "x": -7.5,
+                "y": -1.0
+            },
+            "direction": 0
+        },
+        {
+            "entity_number": 18,
+            "name": "arithmetic-combinator",
+            "position": {
+                "x": -6.5,
+                "y": -3.0
+            },
+            "direction": 0
+        },
+        {
+            "entity_number": 19,
+            "name": "arithmetic-combinator",
+            "position": {
+                "x": -5.5,
+                "y": -3.0
+            },
+            "direction": 0
+        },
+        {
+            "entity_number": 20,
+            "name": "arithmetic-combinator",
+            "position": {
+                "x": -3.5,
+                "y": -3.0
+            },
+            "direction": 0
+        },
+        {
+            "entity_number": 21,
+            "name": "arithmetic-combinator",
+            "position": {
+                "x": -1.5,
+                "y": -3.0
+            },
+            "direction": 0
+        },
+        {
+            "entity_number": 22,
+            "name": "arithmetic-combinator",
+            "position": {
+                "x": 0.5,
+                "y": -3.0
+            },
+            "direction": 0
+        },
+        {
+            "entity_number": 23,
+            "name": "arithmetic-combinator",
+            "position": {
+                "x": 2.5,
+                "y": -3.0
+            },
+            "direction": 0
+        },
+        {
+            "entity_number": 24,
+            "name": "arithmetic-combinator",
+            "position": {
+                "x": 4.0,
+                "y": -1.5
+            },
+            "direction": 1
+        },
+        {
+            "entity_number": 25,
+            "name": "arithmetic-combinator",
+            "position": {
+                "x": 4.0,
+                "y": -3.5
+            },
+            "direction": 1
+        },
+        {
+            "entity_number": 26,
+            "name": "arithmetic-combinator",
+            "position": {
+                "x": 4.0,
+                "y": -2.5
+            },
+            "direction": 1
+        },
+        {
+            "entity_number": 27,
+            "name": "arithmetic-combinator",
+            "position": {
+                "x": 5.0,
+                "y": 0.5
+            },
+            "direction": 1
+        },
+        {
+            "entity_number": 28,
+            "name": "arithmetic-combinator",
+            "position": {
+                "x": 5.0,
+                "y": -0.5
+            },
+            "direction": 1
+        },
+        {
+            "entity_number": 29,
+            "name": "arithmetic-combinator",
+            "position": {
+                "x": 5.0,
+                "y": 1.5
+            },
+            "direction": 1
+        },
+        {
+            "entity_number": 30,
+            "name": "arithmetic-combinator",
+            "position": {
+                "x": 3.0,
+                "y": 1.5
+            },
+            "direction": 1
+        },
+        {
+            "entity_number": 31,
+            "name": "arithmetic-combinator",
+            "position": {
+                "x": 1.0,
+                "y": 1.5
+            },
+            "direction": 1
+        },
+        {
+            "entity_number": 32,
+            "name": "arithmetic-combinator",
+            "position": {
+                "x": 1.0,
+                "y": 0.5
+            },
+            "direction": 1
+        },
+        {
+            "entity_number": 33,
+            "name": "arithmetic-combinator",
+            "position": {
+                "x": -1.0,
+                "y": 0.5
+            },
+            "direction": 1
+        },
+        {
+            "entity_number": 34,
+            "name": "arithmetic-combinator",
+            "position": {
+                "x": -6.0,
+                "y": 0.5
+            },
+            "direction": 1
+        },
+        {
+            "entity_number": 35,
+            "name": "arithmetic-combinator",
+            "position": {
+                "x": -4.5,
+                "y": 0.0
+            },
+            "direction": 2
+        },
+        {
+            "entity_number": 36,
+            "name": "arithmetic-combinator",
+            "position": {
+                "x": -4.0,
+                "y": -1.5
+            },
+            "direction": 3
+        },
+        {
+            "entity_number": 37,
+            "name": "arithmetic-combinator",
+            "position": {
+                "x": -2.5,
+                "y": -2.0
+            },
+            "direction": 0
+        },
+        {
+            "entity_number": 38,
+            "name": "arithmetic-combinator",
+            "position": {
+                "x": -0.5,
+                "y": -3.0
+            },
+            "direction": 0
+        },
+        {
+            "entity_number": 39,
+            "name": "arithmetic-combinator",
+            "position": {
+                "x": 1.5,
+                "y": -3.0
+            },
+            "direction": 0
+        },
+        {
+            "entity_number": 40,
+            "name": "arithmetic-combinator",
+            "position": {
+                "x": 0.5,
+                "y": -1.0
+            },
+            "direction": 0
+        },
+        {
+            "entity_number": 41,
+            "name": "arithmetic-combinator",
+            "position": {
+                "x": 6.5,
+                "y": 1.0
+            },
+            "direction": 0
+        },
+        {
+            "entity_number": 42,
+            "name": "arithmetic-combinator",
+            "position": {
+                "x": 6.5,
+                "y": -1.0
+            },
+            "direction": 0
+        },
+        {
+            "entity_number": 43,
+            "name": "arithmetic-combinator",
+            "position": {
+                "x": 6.5,
+                "y": -3.0
+            },
+            "direction": 0
+        }
+    ]
+}
