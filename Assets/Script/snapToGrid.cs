@@ -31,11 +31,16 @@ public class snapToGrid : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(objectPlacer.instantiatedStructure == gameObject)
+        snap();
+    }
+
+    public void snap()
+    {
+        if (objectPlacer.instantiatedStructure == gameObject)
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            if(GetComponent<RotateSprite>().rotation % 2 == 0)
+            if (GetComponent<RotateSprite>().rotation % 2 == 0)
             {
                 mousePosition.x = Mathf.Round(mousePosition.x + insideX) + outsideX;
                 mousePosition.y = Mathf.Round(mousePosition.y + insideY) + outsideY;
@@ -51,7 +56,7 @@ public class snapToGrid : MonoBehaviour
         }
         else
         {
-            Vector2 pos = new Vector2(transform.position.x,transform.position.y);
+            Vector2 pos = new Vector2(transform.position.x, transform.position.y);
 
             if (GetComponent<RotateSprite>().rotation % 2 == 0)
             {
