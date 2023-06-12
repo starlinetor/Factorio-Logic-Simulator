@@ -14,7 +14,7 @@ public class ObjectPlacer : MonoBehaviour
     public GameObject instantiatedStructure;
     public GameObject structures;
     SaveFileGenerator saveFileGen;
-    
+
     bool structureInstantiated;
     bool structurePlaced;
 
@@ -33,7 +33,7 @@ public class ObjectPlacer : MonoBehaviour
         if (structure == null)
         {
             //If the structure is not place destroy the prefab
-            if(!structurePlaced)
+            if (!structurePlaced)
             {
                 Destroy(instantiatedStructure);
             }
@@ -68,7 +68,7 @@ public class ObjectPlacer : MonoBehaviour
             }
 
             //fi the structure is changed change it
-            if(structure.tag != instantiatedStructure.tag)
+            if (structure.tag != instantiatedStructure.tag)
             {
                 //If the structure is not place destroy the prefab
                 if (!structurePlaced)
@@ -81,7 +81,7 @@ public class ObjectPlacer : MonoBehaviour
                 instantiatedStructure = null;
             }
         }
-        
+
         //this needs to be changed, because when you press q you should use the object you press and if there is nothing structure should be set to null.
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -89,6 +89,8 @@ public class ObjectPlacer : MonoBehaviour
             //structure = null;
         }
 
+
+        instantiatedStructure.GetComponent<snapToGrid>().snap();
         //if you press right click, a structure is selected, you are not hovering over another structure or UI you can place the structure
         if (Input.GetMouseButton(0) && structure && !hoveringUi() && !saveFileGen.checkOverlaps(instantiatedStructure) && !saveFileGen.saving)
         {
@@ -108,7 +110,7 @@ public class ObjectPlacer : MonoBehaviour
     {
         UIelements = GameObject.FindGameObjectsWithTag("UI");
 
-        for(int i=0; i<UIelements.Length; i++)
+        for (int i = 0; i < UIelements.Length; i++)
         {
             if (UIelements[i].GetComponent<UIHovering>().hovering == true)
             {
@@ -119,6 +121,5 @@ public class ObjectPlacer : MonoBehaviour
         return false;
     }
 }
-
 
 
