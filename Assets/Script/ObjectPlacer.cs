@@ -66,13 +66,27 @@ public class ObjectPlacer : MonoBehaviour
                 structurePlaced = false;
                 instantiatedStructure = Instantiate(structure, Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.rotation);
             }
+
+            //fi the structure is changed change it
+            if(structure.tag != instantiatedStructure.tag)
+            {
+                //If the structure is not place destroy the prefab
+                if (!structurePlaced)
+                {
+                    Destroy(instantiatedStructure);
+                }
+
+                //resett all the variables
+                structureInstantiated = false;
+                instantiatedStructure = null;
+            }
         }
         
         //this needs to be changed, because when you press q you should use the object you press and if there is nothing structure should be set to null.
         if (Input.GetKeyDown(KeyCode.Q))
         {
             //if you press right click remove the structure
-            structure = null;
+            //structure = null;
         }
 
         //if you press right click, a structure is selected, you are not hovering over another structure or UI you can place the structure

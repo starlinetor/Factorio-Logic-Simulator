@@ -16,10 +16,10 @@ GameObject:
   - component: {fileID: 802138756325103206}
   - component: {fileID: 556080207465603801}
   - component: {fileID: -1853025197726608518}
-  - component: {fileID: 4264621336454452068}
+  - component: {fileID: 8043043715833509906}
   m_Layer: 0
-  m_Name: arithmetic-combinator
-  m_TagString: arithmetic-combinator
+  m_Name: constant-combinator
+  m_TagString: constant-combinator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 3883000456894531987, guid: 27fab1463b239b742b18bf6cab85ab43, type: 3}
+  m_Sprite: {fileID: 7372633019663914970, guid: 4b6ccd05cc31e5241b2307af324ef6f1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -106,14 +106,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.0428572, y: 1.4285715}
+    oldSize: {x: 1, y: 1.0428572}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9, y: 1.8}
+  m_Size: {x: 0.9, y: 0.9}
   m_EdgeRadius: 0
 --- !u!50 &5227631692268565364
 Rigidbody2D:
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   x: 1
-  y: 2
+  y: 1
 --- !u!114 &802138756325103206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,10 +163,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 3883000456894531987, guid: 27fab1463b239b742b18bf6cab85ab43, type: 3}
-  - {fileID: -8998839132114991710, guid: 27fab1463b239b742b18bf6cab85ab43, type: 3}
-  - {fileID: -8654967424218862130, guid: 27fab1463b239b742b18bf6cab85ab43, type: 3}
-  - {fileID: -4257240241068086633, guid: 27fab1463b239b742b18bf6cab85ab43, type: 3}
+  - {fileID: 6144138237251593219, guid: 4b6ccd05cc31e5241b2307af324ef6f1, type: 3}
+  - {fileID: -4391900598052946352, guid: 4b6ccd05cc31e5241b2307af324ef6f1, type: 3}
+  - {fileID: 7372633019663914970, guid: 4b6ccd05cc31e5241b2307af324ef6f1, type: 3}
+  - {fileID: 5341539769427263689, guid: 4b6ccd05cc31e5241b2307af324ef6f1, type: 3}
   rotation: 0
 --- !u!114 &556080207465603801
 MonoBehaviour:
@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 594512bb0e6d6b844beb816cf2c0e825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4264621336454452068
+--- !u!114 &8043043715833509906
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -206,3 +206,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cd28571538ea9f4285916b5a8d000e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hovering: {fileID: 0}

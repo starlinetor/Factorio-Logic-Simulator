@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 802138756325103206}
   - component: {fileID: 556080207465603801}
   - component: {fileID: -1853025197726608518}
+  - component: {fileID: 8043043715833509906}
   m_Layer: 0
   m_Name: decider-combinator
   m_TagString: decider-combinator
@@ -163,9 +164,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: -960218453326704313, guid: 2e87ccb3fda491d45a6e9fc97419f4a0, type: 3}
-  - {fileID: 137836051203833446, guid: 2e87ccb3fda491d45a6e9fc97419f4a0, type: 3}
-  - {fileID: 1405087071189467170, guid: 2e87ccb3fda491d45a6e9fc97419f4a0, type: 3}
   - {fileID: -3283943907351507917, guid: 2e87ccb3fda491d45a6e9fc97419f4a0, type: 3}
+  - {fileID: 1405087071189467170, guid: 2e87ccb3fda491d45a6e9fc97419f4a0, type: 3}
+  - {fileID: 137836051203833446, guid: 2e87ccb3fda491d45a6e9fc97419f4a0, type: 3}
   rotation: 0
 --- !u!114 &556080207465603801
 MonoBehaviour:
@@ -193,3 +194,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 594512bb0e6d6b844beb816cf2c0e825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8043043715833509906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6905529712793424721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cd28571538ea9f4285916b5a8d000e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hovering: {fileID: 0}

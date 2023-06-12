@@ -12,11 +12,22 @@ public class SaveFileGenerator : MonoBehaviour
     public GameObject[] prefabs;
     public List<GameObject> structures;
     public bool saving;
-    
+    snapToGrid[] prefabsSnap;
+
     // Start is called before the first frame update
     void Start()
     {
         saving = false;
+
+
+        //cache the snap to grid component of the prefabs
+        prefabsSnap = new snapToGrid[prefabs.Length];
+
+        for(int i = 0; i < prefabs.Length; i++)
+        {
+            prefabsSnap[i] = prefabs[i].GetComponent<snapToGrid>();
+        }
+
     }
 
     // Update is called once per frame
@@ -62,21 +73,6 @@ public class SaveFileGenerator : MonoBehaviour
     }
 
     //checks between all entities if there is any collision with the one we are spawning
-    public bool checkOverlaps(GameObject structure)
-    {
-        string save = File.ReadAllText(Application.dataPath + "/save.json");
-        SaveJSON saveJSON = JsonUtility.FromJson<SaveJSON>(save);
-
-        for(int i = 0; i<structures.Count; i++)
-        {
-            if (checkOverlap(saveJSON.entities[i], structure))
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
 
     #region variables for checkOverlap
 
@@ -88,7 +84,44 @@ public class SaveFileGenerator : MonoBehaviour
     double minX;
     double minY;
 
+    float positionX;
+    float positionY;
+
     #endregion
+
+    public bool checkOverlaps(GameObject structure)
+    {
+        //read save file
+        string save = File.ReadAllText(Application.dataPath + "/save.json");
+        SaveJSON saveJSON = JsonUtility.FromJson<SaveJSON>(save);
+
+
+        //get structure x and y and rotate them if necessary
+
+        x2 = structure.GetComponent<snapToGrid>().x;
+        y2 = structure.GetComponent<snapToGrid>().y;
+
+        if (structure.GetComponent<RotateSprite>().rotation % 2 != 0)
+        {
+            (x2, y2) = (y2, x2);
+        }
+
+        positionX = structure.transform.position.x;
+        positionY = structure.transform.position.y;
+
+
+        for (int i = 0; i<structures.Count; i++)
+        {
+            if (checkOverlap(saveJSON.entities[i], structure))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+
 
     public bool checkOverlap(Entities structure1, GameObject strucure2)
     {
@@ -96,25 +129,18 @@ public class SaveFileGenerator : MonoBehaviour
         {
             if(structure1.name == prefabs[i].tag)
             {
-                x1 = prefabs[i].GetComponent<snapToGrid>().x;
-                y1 = prefabs[i].GetComponent<snapToGrid>().y;
+                x1 = prefabsSnap[i].x;
+                y1 = prefabsSnap[i].y;
                 break;
             }
         }
-
-        x2 = strucure2.GetComponent<snapToGrid>().x;
-        y2 = strucure2.GetComponent<snapToGrid>().y;
 
         //if they are rotated sideways we need to invert x and y aka width and height
         if (structure1.direction % 2 != 0)
         {
             (x1, y1) = (y1, x1);
         }
-        
-        if(strucure2.GetComponent<RotateSprite>().rotation % 2 != 0)
-        {
-            (x2, y2) = (y2, x2);
-        }
+
 
         //we are getting the minimum distance between the two object by summing half of theyr lenght in both axis
         minX = x1 / 2 + x2 / 2;
@@ -123,7 +149,7 @@ public class SaveFileGenerator : MonoBehaviour
         //Debug.Log("Structure id: "+structure1.entity_number.ToString()+", minX: "+minX.ToString()+", minY:" + minY.ToString()+", x distance: "+ Mathf.Abs((float)structure1.position.x - strucure2.transform.position.x).ToString()+", y distance"+ Mathf.Abs((float)structure1.position.y - strucure2.transform.position.y).ToString());
 
         //check if the distance X and Y are equal or greater than the minimun distance it will return true
-        if (Mathf.Abs((float)structure1.position.x - strucure2.transform.position.x) >= minX || Mathf.Abs((float)structure1.position.y - strucure2.transform.position.y) >= minY)
+        if (Mathf.Abs((float)structure1.position.x - positionX) >= minX || Mathf.Abs((float)structure1.position.y - positionY) >= minY)
         {
             return false;
         }

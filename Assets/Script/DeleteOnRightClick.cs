@@ -30,7 +30,7 @@ public class DeleteOnRightClick : MonoBehaviour
     {
         if (objectPlacer.instantiatedStructure != gameObject)
         {
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButton(1) && !hoveringUi())
             {
                 //we need to remove the gameobject from the parent list so that is not counted in the save. 
                 transform.parent = null;
@@ -38,5 +38,23 @@ public class DeleteOnRightClick : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+
+    //returns true if you are hovring over an UI element
+    //The UI element needs to have the UIHhovering componenet
+    GameObject[] UIelements;
+    bool hoveringUi()
+    {
+        UIelements = GameObject.FindGameObjectsWithTag("UI");
+
+        for (int i = 0; i < UIelements.Length; i++)
+        {
+            if (UIelements[i].GetComponent<UIHovering>().hovering == true)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
