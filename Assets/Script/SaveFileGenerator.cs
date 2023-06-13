@@ -165,8 +165,12 @@ public class SaveFileGenerator : MonoBehaviour
             return;
         }
 
+
+
         string save = JsonUtility.ToJson(saveJSON, true);
         File.WriteAllText(Application.dataPath + "/save.json", save);
+
+        
     }
 
     GameObject structure;
