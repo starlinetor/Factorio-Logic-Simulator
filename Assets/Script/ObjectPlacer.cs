@@ -89,8 +89,11 @@ public class ObjectPlacer : MonoBehaviour
             //structure = null;
         }
 
-
-        instantiatedStructure.GetComponent<snapToGrid>().snap();
+        //before placing the structure is important to make it snap so we are sure that is actually placed
+        if (instantiatedStructure != null)
+        {
+            instantiatedStructure. GetComponent<snapToGrid>().snap();
+        }
         //if you press right click, a structure is selected, you are not hovering over another structure or UI you can place the structure
         if (Input.GetMouseButton(0) && structure && !hoveringUi() && !saveFileGen.checkOverlaps(instantiatedStructure) && !saveFileGen.saving)
         {

@@ -31,7 +31,10 @@ public class snapToGrid : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        snap();
+        if(objectPlacer.instantiatedStructure != null)
+        {
+            snap();
+        }
     }
 
     public void snap()

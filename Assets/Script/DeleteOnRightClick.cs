@@ -6,11 +6,13 @@ public class DeleteOnRightClick : MonoBehaviour
 {
     ObjectPlacer objectPlacer;
     SaveFileGenerator saveFileGen;
+    QDetection qDetection;
 
     private void Start()
     {
         saveFileGen = GameObject.Find("Structures").GetComponent<SaveFileGenerator>();
         objectPlacer = GameObject.Find("Controller").GetComponent<ObjectPlacer>();
+        qDetection = GameObject.Find("Controller").GetComponent<QDetection>();
     }
     //Destroy the game onbject if you right click
 
@@ -34,6 +36,10 @@ public class DeleteOnRightClick : MonoBehaviour
             {
                 //we need to remove the gameobject from the parent list so that is not counted in the save. 
                 transform.parent = null;
+
+                //Because on mouse exit does not call when you delete the game object we need to remove the hovering variable or you will not be able to deselect the building you have selected
+                qDetection.hovering = null;
+
                 saveFileGen.saveFile();
                 Destroy(gameObject);
             }

@@ -36,14 +36,12 @@ public class QDetection : MonoBehaviour
     {
         if(controller && Input.GetKeyDown(KeyCode.Q))
         {
-
             objectPlacer.structure = hovering;
-            Debug.Log("changed structure");
         }
     }
 
 
-    void OnMouseOver()
+    void OnMouseEnter()
     {
         if(!controller && objectPlacer.instantiatedStructure != gameObject) {
 
