@@ -14,7 +14,8 @@ public class ObjectPlacer : MonoBehaviour
     public GameObject instantiatedStructure;
     public GameObject structures;
     SaveFileGenerator saveFileGen;
-
+    snapToGrid snapGrid;
+    
     bool structureInstantiated;
     bool structurePlaced;
 
@@ -65,6 +66,7 @@ public class ObjectPlacer : MonoBehaviour
                 structureInstantiated = true;
                 structurePlaced = false;
                 instantiatedStructure = Instantiate(structure, Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.rotation);
+                snapGrid = instantiatedStructure.GetComponent<snapToGrid>();
             }
 
             //fi the structure is changed change it
@@ -90,9 +92,9 @@ public class ObjectPlacer : MonoBehaviour
         }
 
         //before placing the structure is important to make it snap so we are sure that is actually placed
-        if (instantiatedStructure != null)
+        if (snapGrid != null)
         {
-            instantiatedStructure. GetComponent<snapToGrid>().snap();
+            snapGrid.snap();
         }
         //if you press right click, a structure is selected, you are not hovering over another structure or UI you can place the structure
         if (Input.GetMouseButton(0) && structure && !hoveringUi() && !saveFileGen.checkOverlaps(instantiatedStructure) && !saveFileGen.saving)

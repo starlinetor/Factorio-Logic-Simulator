@@ -7,7 +7,7 @@ public class snapToGrid : MonoBehaviour
     //snaps the structure to the grid using the mouse position
 
 
-    ObjectPlacer objectPlacer;
+    public ObjectPlacer objectPlacer;
 
     [Header("Ofssets")]
     public int x;
@@ -19,7 +19,7 @@ public class snapToGrid : MonoBehaviour
     float insideY;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         insideX = (x % 2) / 2f;
         insideY = (y % 2) / 2f;
@@ -30,11 +30,7 @@ public class snapToGrid : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        if(objectPlacer.instantiatedStructure != null)
-        {
-            snap();
-        }
+    { 
     }
 
     public void snap()

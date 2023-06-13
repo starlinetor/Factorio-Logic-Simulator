@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -13,12 +14,14 @@ public class SaveFileGenerator : MonoBehaviour
     public List<GameObject> structures;
     public bool saving;
     snapToGrid[] prefabsSnap;
+    public SaveJSON saveJSON = new SaveJSON();
+    bool loadSaving;
 
     // Start is called before the first frame update
     void Start()
     {
         saving = false;
-
+        loadSaving = false;
 
         //cache the snap to grid component of the prefabs
         prefabsSnap = new snapToGrid[prefabs.Length];
@@ -27,7 +30,6 @@ public class SaveFileGenerator : MonoBehaviour
         {
             prefabsSnap[i] = prefabs[i].GetComponent<snapToGrid>();
         }
-
     }
 
     // Update is called once per frame
@@ -48,7 +50,6 @@ public class SaveFileGenerator : MonoBehaviour
             structures.Add(child.gameObject); 
         }
 
-        SaveJSON saveJSON = new SaveJSON();
         saveJSON.entities = new Entities[structures.Count];
 
         for (int i = 0; i < structures.Count; i++)
@@ -65,9 +66,9 @@ public class SaveFileGenerator : MonoBehaviour
             saveJSON.entities[i].direction = structures[i].GetComponent<RotateSprite>().rotation;
         }
 
-        string save = JsonUtility.ToJson(saveJSON,true);
+        //string save = JsonUtility.ToJson(saveJSON,true);
 
-        File.WriteAllText(Application.dataPath + "/save.json", save);
+        //File.WriteAllText(Application.dataPath + "/save.json", save);
 
         saving = false;
     }
@@ -92,8 +93,8 @@ public class SaveFileGenerator : MonoBehaviour
     public bool checkOverlaps(GameObject structure)
     {
         //read save file
-        string save = File.ReadAllText(Application.dataPath + "/save.json");
-        SaveJSON saveJSON = JsonUtility.FromJson<SaveJSON>(save);
+        //string save = File.ReadAllText(Application.dataPath + "/save.json");
+        //SaveJSON saveJSON = JsonUtility.FromJson<SaveJSON>(save);
 
 
         //get structure x and y and rotate them if necessary
@@ -155,6 +156,48 @@ public class SaveFileGenerator : MonoBehaviour
         }
 
         return true;
+    }
+
+    public void save()
+    {
+        if(loadSaving = true)
+        {
+            return;
+        }
+
+        string save = JsonUtility.ToJson(saveJSON, true);
+        File.WriteAllText(Application.dataPath + "/save.json", save);
+    }
+
+    GameObject structure;
+
+    public void laod()
+    {
+        
+       foreach (Transform child in transform)
+       {
+            Destroy(child.gameObject);
+       }
+
+        //read save file
+        string save = File.ReadAllText(Application.dataPath + "/save.json");
+        SaveJSON loadSave = JsonUtility.FromJson<SaveJSON>(save);
+
+        for(int i = 0; i<loadSave.entities.Length; i++)
+        {   
+            foreach(GameObject prefab in prefabs)
+            {
+                if (prefab.tag == loadSave.entities[i].name)
+                {
+                    structure = Instantiate(prefab.gameObject);
+                }
+            }
+            structure.transform.parent = transform;
+            structure.transform.position = new Vector2((float)loadSave.entities[i].position.x, (float)loadSave.entities[i].position.y);
+            structure.GetComponent<RotateSprite>().rotation = loadSave.entities[i].direction;
+        }
+
+        saveFile();
     }
 
 

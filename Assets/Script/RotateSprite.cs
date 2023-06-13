@@ -15,7 +15,7 @@ public class RotateSprite : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
 
         x = gameObject.GetComponent<BoxCollider2D>().size.x;
