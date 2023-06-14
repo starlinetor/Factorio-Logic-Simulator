@@ -15,7 +15,7 @@ public class SaveFileGenerator : MonoBehaviour
     public bool saving;
     snapToGrid[] prefabsSnap;
     public SaveJSON saveJSON = new SaveJSON();
-    bool loadSaving;
+    public bool loadSaving;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +41,8 @@ public class SaveFileGenerator : MonoBehaviour
     //generates a save file based on the saves classes
     public void saveFile()
     {
+
+        Debug.Log("Saving");
         saving = true;
 
         structures.Clear();
@@ -160,28 +162,28 @@ public class SaveFileGenerator : MonoBehaviour
 
     public void save()
     {
-        if(loadSaving = true)
-        {
-            return;
-        }
-
-
 
         string save = JsonUtility.ToJson(saveJSON, true);
         File.WriteAllText(Application.dataPath + "/save.json", save);
 
-        
     }
 
     GameObject structure;
 
-    public void laod()
+    public void load()
     {
-        
-       foreach (Transform child in transform)
-       {
+        StartCoroutine(laodWait());
+    }
+
+    IEnumerator laodWait()
+    {
+
+        foreach (Transform child in transform)
+        {
             Destroy(child.gameObject);
-       }
+        }
+
+        yield return null;
 
         //read save file
         string save = File.ReadAllText(Application.dataPath + "/save.json");
