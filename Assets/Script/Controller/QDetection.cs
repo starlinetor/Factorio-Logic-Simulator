@@ -8,7 +8,8 @@ public class QDetection : MonoBehaviour
     //if the bool is true this script is attached on the controller, else is attached to a structure
     bool controller;
     QDetection qDetection;
-    public GameObject hovering;
+    public GameObject hoveringPrefab;
+    public GameObject hoveringGameObject;
     ObjectPlacer objectPlacer;
     SaveFileGenerator saveFileGenerator;
 
@@ -36,7 +37,7 @@ public class QDetection : MonoBehaviour
     {
         if(controller && Input.GetKeyDown(KeyCode.Q))
         {
-            objectPlacer.structure = hovering;
+            objectPlacer.structure = hoveringPrefab;
         }
     }
 
@@ -49,10 +50,12 @@ public class QDetection : MonoBehaviour
             {
                 if (CompareTag(saveFileGenerator.prefabs[i].tag))
                 {
-                    qDetection.hovering = saveFileGenerator.prefabs[i];
+                    qDetection.hoveringPrefab = saveFileGenerator.prefabs[i];
                     break;
                 }
             }
+
+            qDetection.hoveringGameObject = gameObject;
 
         }
     }
@@ -61,7 +64,8 @@ public class QDetection : MonoBehaviour
     {
         if (!controller && objectPlacer.instantiatedStructure != gameObject)
         {
-            qDetection.hovering = null;
+            qDetection.hoveringPrefab = null;
+            qDetection.hoveringGameObject = null;
 
         }
     }

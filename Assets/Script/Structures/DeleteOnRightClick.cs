@@ -38,7 +38,7 @@ public class DeleteOnRightClick : MonoBehaviour
                 transform.parent = null;
 
                 //Because on mouse exit does not call when you delete the game object we need to remove the hovering variable or you will not be able to deselect the building you have selected
-                qDetection.hovering = null;
+                qDetection.hoveringPrefab = null;
 
                 saveFileGen.saveFile();
                 Destroy(gameObject);

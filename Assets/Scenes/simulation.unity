@@ -1263,7 +1263,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 640842683}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1436770397}
+        m_TargetAssemblyTypeName: Cables, Assembly-CSharp
+        m_MethodName: Red
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &640842683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1398,7 +1410,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 776212334}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1436770397}
+        m_TargetAssemblyTypeName: Cables, Assembly-CSharp
+        m_MethodName: Green
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &776212334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2378,6 +2402,7 @@ GameObject:
   - component: {fileID: 1436770394}
   - component: {fileID: 1436770395}
   - component: {fileID: 1436770396}
+  - component: {fileID: 1436770397}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -2457,7 +2482,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cd28571538ea9f4285916b5a8d000e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hovering: {fileID: 0}
+  hoveringPrefab: {fileID: 0}
+  hoveringGameObject: {fileID: 0}
+--- !u!114 &1436770397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436770391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f83a8e9a02deb48bf1dc70e3e0c403, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cableUsed: 0
+  red: {fileID: 2100000, guid: 4459fff084dd84526ab8fd5082d2eacb, type: 2}
+  green: {fileID: 2100000, guid: bc6da4580f5514e458fe5def87e138be, type: 2}
+  objectPlacer: {fileID: 0}
+  qDetection: {fileID: 0}
+  structure1: {fileID: 0}
+  cable: {fileID: 0}
+  lineRenderer: {fileID: 0}
+  cableInstantiated: 0
+  cablePlaced: 0
 --- !u!1 &1567926817
 GameObject:
   m_ObjectHideFlags: 0
@@ -2698,6 +2746,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1651025392
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1651025393}
+  m_Layer: 0
+  m_Name: Lines
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1651025393
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651025392}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.6327932, y: 0.5892057, z: 0.023818823}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1720150796
 GameObject:
   m_ObjectHideFlags: 0

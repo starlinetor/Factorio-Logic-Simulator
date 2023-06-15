@@ -41,8 +41,6 @@ public class SaveFileGenerator : MonoBehaviour
     //generates a save file based on the saves classes
     public void saveFile()
     {
-
-        Debug.Log("Saving");
         saving = true;
 
         structures.Clear();
