@@ -38,13 +38,13 @@ public class Connections : MonoBehaviour
 
     void checkAbsence(List<GameObject> structures)
     {
-         for(int i=0; i<structures.Count; i++)
-         {
+        for(int i=0; i<structures.Count; i++)
+        {
             if (structures[i] == null)
             {
                 structures.Remove(structures[i]);
             }
-         }
+        }
     }
 
 }

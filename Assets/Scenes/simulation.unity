@@ -2502,10 +2502,13 @@ MonoBehaviour:
   objectPlacer: {fileID: 0}
   qDetection: {fileID: 0}
   structure1: {fileID: 0}
+  structure2: {fileID: 0}
   cable: {fileID: 0}
   lineRenderer: {fileID: 0}
   cableInstantiated: 0
-  cablePlaced: 0
+  struct1Con: {fileID: 0}
+  struct2Con: {fileID: 0}
+  parent: {fileID: 0}
 --- !u!1 &1567926817
 GameObject:
   m_ObjectHideFlags: 0
@@ -2756,7 +2759,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1651025393}
   m_Layer: 0
-  m_Name: Lines
+  m_Name: Cables
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
