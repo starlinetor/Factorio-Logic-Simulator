@@ -1,18 +1,22 @@
 using System.Collections;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class DeleteOnRightClick : MonoBehaviour
 {
     ObjectPlacer objectPlacer;
     SaveFileGenerator saveFileGen;
     QDetection qDetection;
+    Connections connections;
 
     private void Start()
     {
         saveFileGen = GameObject.Find("Structures").GetComponent<SaveFileGenerator>();
         objectPlacer = GameObject.Find("Controller").GetComponent<ObjectPlacer>();
         qDetection = GameObject.Find("Controller").GetComponent<QDetection>();
+        connections = GetComponent<Connections>();
     }
     //Destroy the game onbject if you right click
 
@@ -40,6 +44,13 @@ public class DeleteOnRightClick : MonoBehaviour
                 //Because on mouse exit does not call when you delete the game object we need to remove the hovering variable or you will not be able to deselect the building you have selected
                 qDetection.hoveringPrefab = null;
 
+                //remove the cables
+
+                delete(connections.cablesRed1);
+                delete(connections.cablesRed2);
+                delete(connections.cablesGreen1);
+                delete(connections.cablesGreen2);
+
                 saveFileGen.saveFile();
                 Destroy(gameObject);
             }
@@ -62,5 +73,13 @@ public class DeleteOnRightClick : MonoBehaviour
         }
 
         return false;
+    }
+
+    void delete(List<GameObject> cables) 
+    {
+        foreach (GameObject cable in cables)
+        {
+            Destroy(cable);
+        }
     }
 }
