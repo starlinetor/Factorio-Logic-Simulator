@@ -129,7 +129,6 @@ public class Cables : MonoBehaviour
                         }
                         else
                         {
-                            Debug.Log("Added");
                             struct1Con.connectionsRed1.Add(structure2);
                             struct2Con.connectionsRed1.Add(structure1);
                             struct1Con.cablesRed1.Add(cable);
