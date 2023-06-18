@@ -49,7 +49,6 @@ public class Cables : MonoBehaviour
 
         objectPlacer = GetComponent<ObjectPlacer>();
         qDetection= GetComponent<QDetection>();
-
         parent = GameObject.Find("Cables");
     }
 
@@ -162,13 +161,22 @@ public class Cables : MonoBehaviour
                         //red
                         if (cableUsed == 1)
                         {
-                            if (struct1Con.connectionsRed1.Contains(structure2))
+                            //if the same type of connection exist destroy (the structure needs to already reference each other and the connecion needs to be the same)
+                            if (struct1Con.connectionsRed1.Contains(structure2) && struct1Con.connectionPointRed1[struct1Con.connectionsRed1.IndexOf(structure2)]==inputOutput2)
                             {
+                                //destroy the old cable
                                 Destroy(struct1Con.cablesRed1[struct1Con.connectionsRed1.IndexOf(structure2)].gameObject);
-                                struct1Con.cablesRed1.RemoveAt(struct1Con.connectionsRed1.IndexOf(structure2));
+                                //remove refrence to the point of coonncetion
+                                //struct1Con.connectionPointRed1.RemoveAt(struct1Con.connectionsRed1.IndexOf(structure2));
+                                //remove reference to the structure the cable was connected
                                 struct1Con.connectionsRed1.Remove(structure2);
-                                struct2Con.cablesRed1.RemoveAt(struct2Con.connectionsRed1.IndexOf(structure1));
+
+                                //remove reference to the type of connection
+                                //struct2Con.connectionPointRed2.RemoveAt(struct2Con.connectionsRed2.IndexOf(structure1));
+                                //remove reference to the structure the cable was connected
                                 struct2Con.connectionsRed1.Remove(structure1);
+
+                                //destroy the ghost cable
                                 Destroy(cable);
 
                                 structure1 = null;

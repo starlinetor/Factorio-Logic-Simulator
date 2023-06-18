@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: -1853025197726608518}
   - component: {fileID: 4264621336454452068}
   - component: {fileID: -6490661497948119668}
+  - component: {fileID: -4754972600406808666}
   m_Layer: 0
   m_Name: arithmetic-combinator
   m_TagString: arithmetic-combinator
@@ -379,16 +380,32 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6905529712793424721}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5efe530d5b47a1740985b42d46396e29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   connectionsRed1: []
   cablesRed1: []
+  connectionPointRed1: 
   connectionsGreen1: []
   cablesGreen1: []
+  connectionPointGreen1: 
   connectionsRed2: []
   cablesRed2: []
+  connectionPointRed2: 
   connectionsGreen2: []
   cablesGreen2: []
+  connectionPointGreen2: 
+--- !u!114 &-4754972600406808666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6905529712793424721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8f434bf1c724f648bf9fad1d9cb5b41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
