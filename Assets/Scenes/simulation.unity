@@ -1264,9 +1264,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1436770397}
-        m_TargetAssemblyTypeName: Cables, Assembly-CSharp
-        m_MethodName: Red
+      - m_Target: {fileID: 1436770398}
+        m_TargetAssemblyTypeName: CablesV2, Assembly-CSharp
+        m_MethodName: SetRed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1411,9 +1411,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1436770397}
-        m_TargetAssemblyTypeName: Cables, Assembly-CSharp
-        m_MethodName: Green
+      - m_Target: {fileID: 1436770398}
+        m_TargetAssemblyTypeName: CablesV2, Assembly-CSharp
+        m_MethodName: SetGreen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2402,7 +2402,7 @@ GameObject:
   - component: {fileID: 1436770394}
   - component: {fileID: 1436770395}
   - component: {fileID: 1436770396}
-  - component: {fileID: 1436770397}
+  - component: {fileID: 1436770398}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -2484,7 +2484,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoveringPrefab: {fileID: 0}
   hoveringGameObject: {fileID: 0}
---- !u!114 &1436770397
+--- !u!114 &1436770398
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2493,22 +2493,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1436770391}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6f83a8e9a02deb48bf1dc70e3e0c403, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d563d97ed107f04ba22f2d9449ad3c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cableUsed: 0
-  red: {fileID: 2100000, guid: 4459fff084dd84526ab8fd5082d2eacb, type: 2}
-  green: {fileID: 2100000, guid: bc6da4580f5514e458fe5def87e138be, type: 2}
+  cableWidth: 0.05
+  cableUsed: 
+  primary: {fileID: 0}
+  secondary: {fileID: 0}
+  ancorPrimary: {fileID: 0}
+  ancorSecondary: {fileID: 0}
+  connectionPointPrimary: 0
+  connectionPointSecondary: 0
   objectPlacer: {fileID: 0}
   qDetection: {fileID: 0}
-  structure1: {fileID: 0}
-  structure2: {fileID: 0}
+  red: {fileID: 2100000, guid: 4459fff084dd84526ab8fd5082d2eacb, type: 2}
+  green: {fileID: 2100000, guid: bc6da4580f5514e458fe5def87e138be, type: 2}
+  parent: {fileID: 0}
+  cableInstantiated: 0
   cable: {fileID: 0}
   lineRenderer: {fileID: 0}
-  cableInstantiated: 0
-  struct1Con: {fileID: 0}
-  struct2Con: {fileID: 0}
-  parent: {fileID: 0}
 --- !u!1 &1567926817
 GameObject:
   m_ObjectHideFlags: 0

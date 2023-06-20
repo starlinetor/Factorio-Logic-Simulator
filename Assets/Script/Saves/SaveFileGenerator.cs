@@ -6,6 +6,7 @@ using System.IO;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static ConnectionsV2;
 
 public class SaveFileGenerator : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class SaveFileGenerator : MonoBehaviour
     public bool saving;
     snapToGrid[] prefabsSnap;
     public SaveJSON saveJSON = new SaveJSON();
+    public SaveFile saveBlueprint = new SaveFile();
     public bool loadSaving;
 
     // Start is called before the first frame update
@@ -32,11 +34,6 @@ public class SaveFileGenerator : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     //generates a save file based on the saves classes
     public void saveFile()
@@ -71,6 +68,8 @@ public class SaveFileGenerator : MonoBehaviour
         //File.WriteAllText(Application.dataPath + "/save.json", save);
 
         saving = false;
+
+        saveBlueprint.blueprint = saveStructure(structures);
     }
 
     //checks between all entities if there is any collision with the one we are spawning
@@ -122,8 +121,6 @@ public class SaveFileGenerator : MonoBehaviour
         return false;
     }
 
-
-
     public bool checkOverlap(Entities structure1, GameObject strucure2)
     {
         for (int i = 0; i < prefabs.Length; i++)
@@ -160,9 +157,14 @@ public class SaveFileGenerator : MonoBehaviour
 
     public void save()
     {
+        string saveOld = JsonUtility.ToJson(saveJSON, true);
+        File.WriteAllText(Application.dataPath + "/saveOld.json", saveOld);
 
-        string save = JsonUtility.ToJson(saveJSON, true);
-        File.WriteAllText(Application.dataPath + "/save.json", save);
+        string saveBlueprintText = JsonUtility.ToJson(saveBlueprint, true);
+        saveBlueprintText = saveBlueprintText.Replace("first", "1");
+        saveBlueprintText = saveBlueprintText.Replace("second", "2");
+
+        File.WriteAllText(Application.dataPath + "/saveBlueprint.json",saveBlueprintText);
 
     }
 
@@ -184,7 +186,7 @@ public class SaveFileGenerator : MonoBehaviour
         yield return null;
 
         //read save file
-        string save = File.ReadAllText(Application.dataPath + "/save.json");
+        string save = File.ReadAllText(Application.dataPath + "/saveOld.json");
         SaveJSON loadSave = JsonUtility.FromJson<SaveJSON>(save);
 
         for(int i = 0; i<loadSave.entities.Length; i++)
@@ -204,6 +206,65 @@ public class SaveFileGenerator : MonoBehaviour
         saveFile();
     }
 
+
+    Blueprint saveStructure(List<GameObject> structures)
+    {
+        Blueprint save = new Blueprint();
+        save.entities = new EntityObject[structures.Count];
+
+        for(int i=0; i<structures.Count; i++)
+        {
+            save.entities[i] = new EntityObject();
+            save.entities[i].entity_number = i;
+            save.entities[i].name = structures[i].tag;
+            save.entities[i].position = new PositionObject();
+            save.entities[i].position.x = structures[i].transform.position.x;
+            //factorio is even more special it inverst y, thatas why is times -1
+            save.entities[i].position.y = -structures[i].transform.position.y;
+            //times two because factorio is special, to be more precise factorio uses 0,2,4,6 instead of 0,1,2,3
+            save.entities[i].direction = structures[i].GetComponent<RotateSprite>().rotation*2;
+            save.entities[i].connections = new ConnectionObject();
+            save.entities[i].connections.first = new ConnectionPointObject();
+            save.entities[i].connections.second = new ConnectionPointObject();
+
+            ConnectionsV2 connections = structures[i].GetComponent<ConnectionsV2>();
+
+            try
+            {
+                save.entities[i].connections.first.red = new ConnectionDataObject[connections.references["Red1"].structures.Count];
+                save.entities[i].connections.first.red = storeConnections(structures, connections.references["Red1"]);
+
+                save.entities[i].connections.first.green = new ConnectionDataObject[connections.references["Green1"].structures.Count];
+                save.entities[i].connections.first.green = storeConnections(structures, connections.references["Green1"]);
+
+                save.entities[i].connections.second.red = new ConnectionDataObject[connections.references["Red2"].structures.Count];
+                save.entities[i].connections.second.red = storeConnections(structures, connections.references["Red2"]);
+
+                save.entities[i].connections.second.green = new ConnectionDataObject[connections.references["Green2"].structures.Count];
+                save.entities[i].connections.second.green = storeConnections(structures, connections.references["Green2"]);
+            }
+            catch
+            {
+                Debug.Log("Error SaveFileGenerator, failed to save connection, error ignored", structure);
+            }
+
+
+        }
+
+        return save;
+    }
+
+    ConnectionDataObject[] storeConnections(List<GameObject> structures,References connections)
+    {
+        ConnectionDataObject[] connectionDataObjects = new ConnectionDataObject[connections.structures.Count];
+        for (int i = 0; i < connectionDataObjects.Length; i++)
+        {
+            connectionDataObjects[i] = new ConnectionDataObject();
+            connectionDataObjects[i].entity_id = structures.IndexOf(connections.structures[i]);
+            connectionDataObjects[i].circuit_id = connections.connectedTo[i];
+        }
+        return connectionDataObjects;
+    }
 
     //these classes rappresent the json structure for the save file
     #region saves

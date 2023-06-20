@@ -4,14 +4,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[Serializable]
+public class SaveFile
+{
+    public Blueprint blueprint;
+}
+
 [Serializable]
 public class Blueprint
 {
     //this class defines the blueprint JSON file format
-    public IconObject incons;
+    public IconObject[] incons;
     public EntityObject[] entities;
-    public ConnectionObject connections;
-
 }
 
 [Serializable]

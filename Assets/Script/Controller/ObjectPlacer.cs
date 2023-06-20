@@ -50,13 +50,13 @@ public class ObjectPlacer : MonoBehaviour
             //if structure exist roate it
             if (Input.GetKeyDown(KeyCode.R))
             {
-                if (rotation != 3)
+                if (rotation != 0)
                 {
-                    rotation++;
+                    rotation--;
                 }
                 else
                 {
-                    rotation = 0;
+                    rotation = 3;
                 }
             }
 

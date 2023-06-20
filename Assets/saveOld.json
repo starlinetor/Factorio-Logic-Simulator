@@ -1,0 +1,40 @@
+{
+    "entities": [
+        {
+            "entity_number": 0,
+            "name": "arithmetic-combinator",
+            "position": {
+                "x": -7.0,
+                "y": 8.5
+            },
+            "direction": 3
+        },
+        {
+            "entity_number": 1,
+            "name": "arithmetic-combinator",
+            "position": {
+                "x": -4.5,
+                "y": 11.0
+            },
+            "direction": 2
+        },
+        {
+            "entity_number": 2,
+            "name": "arithmetic-combinator",
+            "position": {
+                "x": -2.0,
+                "y": 8.5
+            },
+            "direction": 1
+        },
+        {
+            "entity_number": 3,
+            "name": "arithmetic-combinator",
+            "position": {
+                "x": -4.5,
+                "y": 6.0
+            },
+            "direction": 0
+        }
+    ]
+}

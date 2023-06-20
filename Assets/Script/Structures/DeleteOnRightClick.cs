@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Xml;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -9,14 +10,14 @@ public class DeleteOnRightClick : MonoBehaviour
     ObjectPlacer objectPlacer;
     SaveFileGenerator saveFileGen;
     QDetection qDetection;
-    Connections connections;
+    ConnectionsV2 connectionsV2;
 
     private void Start()
     {
         saveFileGen = GameObject.Find("Structures").GetComponent<SaveFileGenerator>();
         objectPlacer = GameObject.Find("Controller").GetComponent<ObjectPlacer>();
         qDetection = GameObject.Find("Controller").GetComponent<QDetection>();
-        connections = GetComponent<Connections>();
+        connectionsV2 = GetComponent<ConnectionsV2>();
     }
     //Destroy the game onbject if you right click
 
@@ -45,11 +46,15 @@ public class DeleteOnRightClick : MonoBehaviour
                 qDetection.hoveringPrefab = null;
 
                 //remove the cables
-
-                delete(connections.cablesRed1);
-                delete(connections.cablesRed2);
-                delete(connections.cablesGreen1);
-                delete(connections.cablesGreen2);
+                try
+                {
+                    deleteConnections();
+                }
+                catch
+                {
+                    Debug.Log("Error in DeleteOnRightClick, impossible to delete connections, error ignored");
+                }
+                
 
                 saveFileGen.saveFile();
                 Destroy(gameObject);
@@ -75,11 +80,14 @@ public class DeleteOnRightClick : MonoBehaviour
         return false;
     }
 
-    void delete(List<GameObject> cables) 
+    void deleteConnections() 
     {
-        foreach (GameObject cable in cables)
+        foreach (KeyValuePair<string, ConnectionsV2.References> entry in connectionsV2.references)
         {
-            Destroy(cable);
+            foreach(GameObject cable in entry.Value.cables)
+            {
+                Destroy(cable);
+            }
         }
     }
 }

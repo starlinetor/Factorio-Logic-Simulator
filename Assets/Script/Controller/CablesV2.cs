@@ -45,6 +45,8 @@ public class CablesV2 : MonoBehaviour
     public LineRenderer lineRenderer;
 
     // Start is called before the first frame update
+
+    SaveFileGenerator saveFileGen;
     void Start()
     {
         //decalre materials with string so that we can use cablesUsed to chose the right one
@@ -54,6 +56,7 @@ public class CablesV2 : MonoBehaviour
         objectPlacer = GetComponent<ObjectPlacer>();
         qDetection = GetComponent<QDetection>();
         parent = GameObject.Find("Cables");
+        saveFileGen = GameObject.Find("Structures").GetComponent<SaveFileGenerator>();
 
         //set cable used to null because is not by defualt
         cableUsed = null;
@@ -78,15 +81,15 @@ public class CablesV2 : MonoBehaviour
                 if(primary == null)
                 {
                     primary = qDetection.hoveringGameObject;
-                    connectionPointPrimary = inputOuput(primary);
+                    connectionPointPrimary = inputOuput(primary,cableUsed);
                     ancorPrimary = GetAncorPoint(primary, connectionPointPrimary);
                 }
                 else
                 {
                     //we check that the structure and the connection are not the same, because you can connect a structure to itself but you can't connect it to the same place
-                    if(primary!= qDetection.hoveringGameObject || ancorPrimary != GetAncorPoint(qDetection.hoveringGameObject, inputOuput(qDetection.hoveringGameObject))){
+                    if(primary!= qDetection.hoveringGameObject || ancorPrimary != GetAncorPoint(qDetection.hoveringGameObject, inputOuput(qDetection.hoveringGameObject, cableUsed))){
                         secondary = qDetection.hoveringGameObject;
-                        connectionPointSecondary = inputOuput(secondary);
+                        connectionPointSecondary = inputOuput(secondary, cableUsed);
                         ancorSecondary = GetAncorPoint(secondary, connectionPointSecondary);
 
                         MoveCable(ancorPrimary.transform.position, ancorSecondary.transform.position);
@@ -100,6 +103,10 @@ public class CablesV2 : MonoBehaviour
                         {
                             CreateConnection();
                         }
+
+                        //at the end we save the file, we don0t care if is already saving, considering that we don't risk collisions with cables and we don't use the save file for checks
+                        saveFileGen.saveFile();
+
                     }
 
                 }
@@ -228,38 +235,37 @@ public class CablesV2 : MonoBehaviour
     }
 
     //returns the type of connection that is done
-    public int inputOuput(GameObject structure)
+    public int inputOuput(GameObject structure, string color)
     {
+        float distance = 999999;
+        GameObject ancor = null;
 
         Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mouse -= new Vector2(structure.transform.position.x, structure.transform.position.y);
-
-        RotateSprite rotateSprite = structure.GetComponent<RotateSprite>();
-        if (rotateSprite.rotation > 1)
+        foreach (Transform t in structure.transform)
         {
-            mouse *= -1;
-        }
-
-        if (rotateSprite.rotation % 2 == 0)
-        {
-            if (mouse.y > 0)
+            if(t.gameObject.tag == "Ancor")
             {
-                return 2;
+                if(distance>Vector3.Distance(t.position, new Vector3(mouse.x, mouse.y, 0f)) && t.gameObject.GetComponent<ancorPointData>().color == color)
+                {
+                    distance = Vector3.Distance(t.position, new Vector3(mouse.x, mouse.y, 0f));
+                    ancor = t.gameObject;
+                }
             }
         }
-        else if(mouse.x > 0)
+        if(ancor != null)
         {
-            return 2;
+            return ancor.GetComponent<ancorPointData>().inputOutput;
         }
 
-        return 1;
+        Debug.Log("No structure found return 0, CablesV2.inputOutPut");
+        return 0;
     }
 
     //returns the ancor point given the connection point
     //rewrite this, is so bad considering it only works with structure that are with both inputs and outputs
     public GameObject GetAncorPoint(GameObject structure, int connectionPoint)
     {
-        return structure.transform.Find("AncorPoints/" + connectionPoint.ToString() + cableUsed).gameObject;
+        return structure.transform.Find(cableUsed + connectionPoint).gameObject;
     }
 
     //functions to change the used cable
