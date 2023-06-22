@@ -1,3 +1,4 @@
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,6 +9,9 @@ public class ConnectionsV2 : MonoBehaviour
     [Serializable]
     public class References
     {
+        public string color;
+        public int number;
+        public GameObject originStructure;
         public List<GameObject> structures = new List<GameObject>();
         public List<GameObject> cables = new List<GameObject>();
         public List<int> connectedTo = new List<int>();
@@ -26,6 +30,16 @@ public class ConnectionsV2 : MonoBehaviour
     public References red2 = new References();
     public References green1 = new References();
     public References green2 = new References();
+
+    private void Start()
+    {
+        foreach(KeyValuePair<string, References> entry in references)
+        {
+            entry.Value.color = entry.Key.Substring(0, entry.Key.Length - 1);
+            entry.Value.number =int.Parse(entry.Key.Substring(entry.Key.Length - 1));
+            entry.Value.originStructure = gameObject;
+        }
+    }
 
     void Update()
     {

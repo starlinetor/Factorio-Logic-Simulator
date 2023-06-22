@@ -300,18 +300,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   red1:
+    originStructure: {fileID: 6905529712793424721}
     structures: []
     cables: []
     connectedTo: 
   red2:
+    originStructure: {fileID: 6905529712793424721}
     structures: []
     cables: []
     connectedTo: 
   green1:
+    originStructure: {fileID: 6905529712793424721}
     structures: []
     cables: []
     connectedTo: 
   green2:
+    originStructure: {fileID: 6905529712793424721}
     structures: []
     cables: []
     connectedTo: 

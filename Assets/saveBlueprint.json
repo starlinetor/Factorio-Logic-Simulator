@@ -6,76 +6,36 @@
                 "entity_number": 0,
                 "name": "arithmetic-combinator",
                 "position": {
-                    "x": -7.0,
-                    "y": -8.5
+                    "x": -3.5,
+                    "y": 0.0
                 },
-                "direction": 6,
+                "direction": 0,
                 "connections": {
                     "1": {
-                        "red": [
+                        "red": [],
+                        "green": [
                             {
-                                "entity_id": 1,
-                                "circuit_id": 2
-                            },
-                            {
-                                "entity_id": 1,
+                                "entity_id": 4,
                                 "circuit_id": 1
-                            },
-                            {
-                                "entity_id": 2,
-                                "circuit_id": 1
-                            },
-                            {
-                                "entity_id": 2,
-                                "circuit_id": 2
                             },
                             {
                                 "entity_id": 3,
                                 "circuit_id": 2
                             },
                             {
-                                "entity_id": 3,
+                                "entity_id": 1,
                                 "circuit_id": 1
-                            },
-                            {
-                                "entity_id": 0,
-                                "circuit_id": 2
                             }
-                        ],
-                        "green": []
+                        ]
                     },
                     "2": {
-                        "red": [
+                        "red": [],
+                        "green": [
                             {
                                 "entity_id": 1,
-                                "circuit_id": 2
-                            },
-                            {
-                                "entity_id": 1,
-                                "circuit_id": 1
-                            },
-                            {
-                                "entity_id": 2,
-                                "circuit_id": 1
-                            },
-                            {
-                                "entity_id": 2,
-                                "circuit_id": 2
-                            },
-                            {
-                                "entity_id": 3,
-                                "circuit_id": 2
-                            },
-                            {
-                                "entity_id": 3,
-                                "circuit_id": 1
-                            },
-                            {
-                                "entity_id": 0,
                                 "circuit_id": 1
                             }
-                        ],
-                        "green": []
+                        ]
                     }
                 }
             },
@@ -83,20 +43,21 @@
                 "entity_number": 1,
                 "name": "arithmetic-combinator",
                 "position": {
-                    "x": -4.5,
-                    "y": -11.0
+                    "x": 1.5,
+                    "y": 0.0
                 },
-                "direction": 4,
+                "direction": 0,
                 "connections": {
                     "1": {
-                        "red": [
+                        "red": [],
+                        "green": [
                             {
-                                "entity_id": 2,
-                                "circuit_id": 1
+                                "entity_id": 0,
+                                "circuit_id": 2
                             },
                             {
-                                "entity_id": 3,
-                                "circuit_id": 2
+                                "entity_id": 5,
+                                "circuit_id": 1
                             },
                             {
                                 "entity_id": 3,
@@ -107,51 +68,13 @@
                                 "circuit_id": 1
                             },
                             {
-                                "entity_id": 0,
-                                "circuit_id": 2
-                            },
-                            {
-                                "entity_id": 2,
-                                "circuit_id": 2
-                            },
-                            {
-                                "entity_id": 1,
+                                "entity_id": 5,
                                 "circuit_id": 2
                             }
-                        ],
-                        "green": []
+                        ]
                     },
                     "2": {
-                        "red": [
-                            {
-                                "entity_id": 0,
-                                "circuit_id": 2
-                            },
-                            {
-                                "entity_id": 0,
-                                "circuit_id": 1
-                            },
-                            {
-                                "entity_id": 2,
-                                "circuit_id": 1
-                            },
-                            {
-                                "entity_id": 3,
-                                "circuit_id": 2
-                            },
-                            {
-                                "entity_id": 3,
-                                "circuit_id": 1
-                            },
-                            {
-                                "entity_id": 2,
-                                "circuit_id": 2
-                            },
-                            {
-                                "entity_id": 1,
-                                "circuit_id": 1
-                            }
-                        ],
+                        "red": [],
                         "green": []
                     }
                 }
@@ -160,75 +83,26 @@
                 "entity_number": 2,
                 "name": "arithmetic-combinator",
                 "position": {
-                    "x": -2.0,
-                    "y": -8.5
+                    "x": 3.5,
+                    "y": -2.0
                 },
-                "direction": 2,
+                "direction": 0,
                 "connections": {
                     "1": {
-                        "red": [
+                        "red": [],
+                        "green": [
                             {
-                                "entity_id": 1,
-                                "circuit_id": 2
-                            },
-                            {
-                                "entity_id": 1,
+                                "entity_id": -1,
                                 "circuit_id": 1
                             },
                             {
-                                "entity_id": 3,
-                                "circuit_id": 2
-                            },
-                            {
-                                "entity_id": 3,
+                                "entity_id": 5,
                                 "circuit_id": 1
-                            },
-                            {
-                                "entity_id": 0,
-                                "circuit_id": 2
-                            },
-                            {
-                                "entity_id": 0,
-                                "circuit_id": 1
-                            },
-                            {
-                                "entity_id": 2,
-                                "circuit_id": 2
                             }
-                        ],
-                        "green": []
+                        ]
                     },
                     "2": {
-                        "red": [
-                            {
-                                "entity_id": 2,
-                                "circuit_id": 1
-                            },
-                            {
-                                "entity_id": 1,
-                                "circuit_id": 2
-                            },
-                            {
-                                "entity_id": 1,
-                                "circuit_id": 1
-                            },
-                            {
-                                "entity_id": 3,
-                                "circuit_id": 2
-                            },
-                            {
-                                "entity_id": 3,
-                                "circuit_id": 1
-                            },
-                            {
-                                "entity_id": 0,
-                                "circuit_id": 2
-                            },
-                            {
-                                "entity_id": 0,
-                                "circuit_id": 1
-                            }
-                        ],
+                        "red": [],
                         "green": []
                     }
                 }
@@ -237,76 +111,118 @@
                 "entity_number": 3,
                 "name": "arithmetic-combinator",
                 "position": {
-                    "x": -4.5,
-                    "y": -6.0
+                    "x": -0.5,
+                    "y": 2.0
                 },
                 "direction": 0,
                 "connections": {
                     "1": {
-                        "red": [
-                            {
-                                "entity_id": 1,
-                                "circuit_id": 2
-                            },
+                        "red": [],
+                        "green": [
                             {
                                 "entity_id": 1,
                                 "circuit_id": 1
                             },
                             {
-                                "entity_id": 2,
-                                "circuit_id": 1
-                            },
-                            {
-                                "entity_id": 2,
+                                "entity_id": 4,
                                 "circuit_id": 2
-                            },
-                            {
-                                "entity_id": 3,
-                                "circuit_id": 2
-                            },
-                            {
-                                "entity_id": 0,
-                                "circuit_id": 2
-                            },
-                            {
-                                "entity_id": 0,
-                                "circuit_id": 1
                             }
-                        ],
-                        "green": []
+                        ]
                     },
                     "2": {
-                        "red": [
+                        "red": [],
+                        "green": [
                             {
-                                "entity_id": 1,
-                                "circuit_id": 2
-                            },
-                            {
-                                "entity_id": 1,
+                                "entity_id": -1,
                                 "circuit_id": 1
-                            },
-                            {
-                                "entity_id": 2,
-                                "circuit_id": 1
-                            },
-                            {
-                                "entity_id": 2,
-                                "circuit_id": 2
-                            },
-                            {
-                                "entity_id": 3,
-                                "circuit_id": 1
-                            },
-                            {
-                                "entity_id": 0,
-                                "circuit_id": 2
                             },
                             {
                                 "entity_id": 0,
                                 "circuit_id": 1
                             }
-                        ],
-                        "green": []
+                        ]
+                    }
+                }
+            },
+            {
+                "entity_number": 4,
+                "name": "arithmetic-combinator",
+                "position": {
+                    "x": -2.5,
+                    "y": -3.0
+                },
+                "direction": 0,
+                "connections": {
+                    "1": {
+                        "red": [],
+                        "green": [
+                            {
+                                "entity_id": 0,
+                                "circuit_id": 1
+                            },
+                            {
+                                "entity_id": -1,
+                                "circuit_id": 1
+                            }
+                        ]
+                    },
+                    "2": {
+                        "red": [],
+                        "green": [
+                            {
+                                "entity_id": 3,
+                                "circuit_id": 1
+                            },
+                            {
+                                "entity_id": -1,
+                                "circuit_id": 1
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "entity_number": 5,
+                "name": "arithmetic-combinator",
+                "position": {
+                    "x": 0.5,
+                    "y": -3.0
+                },
+                "direction": 0,
+                "connections": {
+                    "1": {
+                        "red": [],
+                        "green": [
+                            {
+                                "entity_id": 2,
+                                "circuit_id": 1
+                            },
+                            {
+                                "entity_id": 1,
+                                "circuit_id": 1
+                            },
+                            {
+                                "entity_id": 5,
+                                "circuit_id": 2
+                            }
+                        ]
+                    },
+                    "2": {
+                        "red": [],
+                        "green": [
+                            {
+                                "entity_id": 1,
+                                "circuit_id": 1
+                            },
+                            {
+                                "entity_id": 5,
+                                "circuit_id": 1
+                            },
+                            {
+                                "entity_id": -1,
+                                "circuit_id": 1
+                            }
+                        ]
                     }
                 }
             }

@@ -4,35 +4,53 @@
             "entity_number": 0,
             "name": "arithmetic-combinator",
             "position": {
-                "x": -7.0,
-                "y": 8.5
+                "x": -3.5,
+                "y": 0.0
             },
-            "direction": 3
+            "direction": 0
         },
         {
             "entity_number": 1,
             "name": "arithmetic-combinator",
             "position": {
-                "x": -4.5,
-                "y": 11.0
+                "x": 1.5,
+                "y": 0.0
             },
-            "direction": 2
+            "direction": 0
         },
         {
             "entity_number": 2,
             "name": "arithmetic-combinator",
             "position": {
-                "x": -2.0,
-                "y": 8.5
+                "x": 3.5,
+                "y": 2.0
             },
-            "direction": 1
+            "direction": 0
         },
         {
             "entity_number": 3,
             "name": "arithmetic-combinator",
             "position": {
-                "x": -4.5,
-                "y": 6.0
+                "x": -0.5,
+                "y": -2.0
+            },
+            "direction": 0
+        },
+        {
+            "entity_number": 4,
+            "name": "arithmetic-combinator",
+            "position": {
+                "x": -2.5,
+                "y": 3.0
+            },
+            "direction": 0
+        },
+        {
+            "entity_number": 5,
+            "name": "arithmetic-combinator",
+            "position": {
+                "x": 0.5,
+                "y": 3.0
             },
             "direction": 0
         }

@@ -947,6 +947,7 @@ GameObject:
   m_Component:
   - component: {fileID: 279646775}
   - component: {fileID: 279646774}
+  - component: {fileID: 279646776}
   m_Layer: 0
   m_Name: Structures
   m_TagString: Untagged
@@ -974,6 +975,10 @@ MonoBehaviour:
   saving: 1
   saveJSON:
     entities: []
+  saveBlueprint:
+    blueprint:
+      incons: []
+      entities: []
   loadSaving: 0
 --- !u!4 &279646775
 Transform:
@@ -990,6 +995,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &279646776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 279646773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5123176762ab354a9e488e96d9e8bdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visualize: 1
+  waitTime: 0.2
+  nodes: []
+  notVisitedNodes: []
+  visistedNodes: []
+  adjacentNodes: []
+  connectedNodes: []
+  nodeOrder: []
 --- !u!1 &590588026
 GameObject:
   m_ObjectHideFlags: 0
